@@ -11,5 +11,9 @@ function! s:remove_unnecessary_space()
     while getline('$') == ""
         $delete _
     endwhile
-    let winid = popup_create("Blank out!", {"moved": "any", "border": [1,1,1,1]})
+
+    " popup
+    if exists('g:abo_popup')
+        let winid = popup_create(g:abo_popup, {"moved": "any", "border": [1,1,1,1]})
+    endif
 endfunction
